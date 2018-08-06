@@ -74,7 +74,11 @@ BalanceModule.ShufflingModes[Plugin.ShuffleMode.HIVE] = function(self, gamerules
 		end
 	end
 
-	for team_number, team in ipairs {team1, team2} do
+	local teams = {team1, team2}
+
+	Shine.Hook.Call("PreShuffleOptimiseTeams", teams)
+
+	for team_number, team in ipairs(teams) do
 		for i = 1, #team do
 			Print("Shuffling %s", team[i]:GetName())
 			gamerules:JoinTeam(team[i], team_number, true, true)
