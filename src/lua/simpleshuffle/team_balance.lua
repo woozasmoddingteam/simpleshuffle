@@ -11,6 +11,16 @@ BalanceModule.ShufflingModes[Plugin.ShuffleMode.HIVE] = function(self, gamerules
 	table.addtable(teams[1], targets)
 	table.addtable(teams[2], targets)
 
+	for i = #targets, 1, -1 do
+		local target = targets[i]
+		if target:isa "Commander" then
+			targets[i] = targets[#targets]
+			targets[#targets] = nil
+		else
+			gamerules:JoinTeam(team[i], 0, true, true)
+		end
+	end
+
 	Log("Targets: %s", targets)
 	Log("Teams: %s", teams)
 
