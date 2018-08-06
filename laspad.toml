@@ -5,3 +5,4 @@ tags            = ["tool", "must be run on server", "shine"]
 autodescription = true
 description     = "README.md"
 preview         = "/dev/null"
+website         = "https://github.com/woozasmoddingteam/simpleshuffle"
